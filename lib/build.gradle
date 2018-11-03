@@ -20,7 +20,7 @@ test {
 
 javadoc {
     source = sourceSets.main.allJava
-    destinationDir = file('docs')
+    destinationDir = file('../docs')
     title = "MP5"
     options.addBooleanOption('html5', true)
 }
