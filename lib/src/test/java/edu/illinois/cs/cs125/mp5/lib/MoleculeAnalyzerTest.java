@@ -833,6 +833,11 @@ public class MoleculeAnalyzerTest {
     /** getLinearBackbone finds the carbons in a linear molecule's backbone (longest chain, under most circumstances) */
     @Test(timeOut = HELPER_TEST_TIMEOUT)
     public void helpGetLinearBackbone() {
+        MoleculeAnalyzer methane = new MoleculeAnalyzer(new LinearOrganicMoleculeBuilder(1).build());
+        List<BondedAtom> methaneBackbone = methane.getLinearBackbone();
+        Assert.assertEquals(methaneBackbone.size(), 1, "getLinearBackbone didn't find the backbone of a one-carbon molecule");
+        Assert.assertTrue(methaneBackbone.get(0).isCarbon(), "getLinearBackbone selected a non-carbon atom as the backbone for a one-carbon molecule");
+
         MoleculeAnalyzer ethane = new MoleculeAnalyzer(new LinearOrganicMoleculeBuilder(2).build());
         Assert.assertEquals(ethane.getLinearBackbone().size(), 2, "getLinearBackbone didn't find the backbone of a two-carbon molecule");
 
