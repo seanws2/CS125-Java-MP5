@@ -32,25 +32,6 @@ public class MoleculeAnalyzer {
     public MoleculeAnalyzer(final BondedAtom molecule) {
     }
 
-    /**
-     * Determines the total molecular weight of this molecule.
-     * <p>
-     * Computes molecular weight by summing the weights of all the atoms that comprise the molecule.
-     * <p>
-     * We've provided this so that you can see one way of iterating through all of the neighbors to an atom.
-     * The BondedAtom class acts as an iterator (by implementing the Java Iterable interface), meaning that we
-     * can use it on the right side of a for-each enhanced for loop.
-     *
-     * @return the molecular weight of the molecule in grams per mole
-     */
-    public double getMolecularWeight() {
-        double molecularWeight = 0;
-        for (BondedAtom atom : allAtoms) {
-            molecularWeight += atom.getElement().getWeight();
-        }
-        return molecularWeight;
-    }
-
     /*
      * You should not need to modify code below this point.
      */
